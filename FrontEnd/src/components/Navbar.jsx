@@ -23,7 +23,8 @@ export default function Navbar() {
         md:bg-[#0A0d14]/80 md:backdrop-blur-md md:shadow-md
       `}
     >
-      <div className="logo">
+      <div className="logo flex">
+        <img src={DataImage.LogoImage} alt="LogoImage" className="w-[50px]" />
         <h1 className="text-3xl font-bold bg-white text-black p-1 md:bg-transparent md:text-white">
           Portfolio
         </h1>
@@ -53,7 +54,7 @@ export default function Navbar() {
         <li>
           <a
             href="#about"
-            className= "relative group text-lg font-medium md:hover:text-[#144e94]"
+            className="relative group text-lg font-medium md:hover:text-[#144e94]"
           >
             About
             <span className={underlineClass}></span>
@@ -83,7 +84,7 @@ export default function Navbar() {
         <li>
           <a href="https://github.com/Adityarns">
             <img
-              src={DataImage.GithubImage}
+              // src={DataImage.GithubImage}
               alt="GithubImage"
               className="w-[30px]"
             />
@@ -92,7 +93,7 @@ export default function Navbar() {
         <li>
           <a href="https://www.linkedin.com/in/aditya-rahman-syach-b9096133a/">
             <img
-              src={DataImage.LinkedinImage}
+              // src={DataImage.LinkedinImage}
               alt="LinkedinImage"
               className="w-[35px]"
             />

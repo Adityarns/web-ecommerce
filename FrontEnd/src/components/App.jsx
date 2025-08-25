@@ -1,8 +1,8 @@
-import "../App";
+import Navbar from "./Navbar";
 
 function App() {
   return (
-    <div className="flex text-">
+    <div className="flex text-4xl">
       <Navbar></Navbar>
     </div>
   );
