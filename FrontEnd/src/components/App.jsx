@@ -1,13 +1,15 @@
+import DataImage from "../data";
+
 export default function App() {
   return (
-    <div className="justify-center text-center  sm:pt-16">
+    <div className="justify-center text-center sm:pt-10">
       <div className="hero grid lg:grid-cols-2 grid-cols-1 py-10 md:py-36 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto animate__animated animate__fadeInUp animate__delay-0.5s">
-        <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-30">
+        <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5">
           <div>
-            <h1 className="text-6xl/snug font-semibold text-[#589507] italic">
+            <h1 className="text-6xl/snug font-medium text-[#589507] italic">
               Matcha Moments
             </h1>
-            <p className="py-3 text-2xl">
+            <p className="pt-2 pb-6 text-2xl text-left text-[#748E63]">
               Dari ritual tradisional Jepang hingga cangkir Anda, rasakan
               kelezatan matcha autentik setiap hari
             </p>
@@ -15,25 +17,26 @@ export default function App() {
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a
               href="#about"
-              className="py-3 px-6 md:py-4 md:px-10 bg-[#144e94] hover:bg-[#146C94] rounded-3xl text-white"
+              className="py-2 text-[#FAF8ED] px-6 md:py-3 md:px-18 bg-[#589507] hover:bg-[#FAF8ED] rounded-3xl hover:text-[#748E63] border-2 border-[#748E63] "
             >
-              About Me
+              Menu
             </a>
             <a
               href="#project"
-              className="py-3 px-6 md:py-4 md:px-10 bg-[#0A0d14] hover:bg-[#146C94] rounded-3xl text-white border-[#144e94] border-2"
+              className="py-2 text-[#748E63] px-6 md:py-3 md:px-10 bg-[#FAF8ED] hover:bg-[#589507] rounded-3xl hover:text-[#FAF8ED] border-[#748E63] border-2"
             >
-              My Projects
+              Tentang Matcha
             </a>
           </div>
         </div>
-
-        <img
-          // src={DataImage.HeroImage}
-          alt="Hero Image"
-          className="w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px] rounded-full object-cover mx-auto border-[#144e94] border-3"
-          loading="lazy"
-        />
+        <div className="pl-16">
+          <img
+            src={DataImage.HeroImage}
+            alt="Hero Image"
+            className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] rounded-full object-cover mx-auto border-[#748E63] border-3"
+            loading="lazy"
+          />
+        </div>
       </div>
     </div>
   );
