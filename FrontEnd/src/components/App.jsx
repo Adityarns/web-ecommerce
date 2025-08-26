@@ -1,4 +1,5 @@
 import DataImage from "../data";
+import { ChevronRight } from "react-feather";
 
 export default function App() {
   return (
@@ -17,15 +18,15 @@ export default function App() {
           <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a
               href="#about"
-              className="py-2 text-[#FAF8ED] px-6 md:py-3 md:px-18 bg-[#589507] hover:bg-[#FAF8ED] rounded-3xl hover:text-[#748E63] border-2 border-[#748E63] "
+              className="py-2 px-6 md:py-3 md:px-8 
+           bg-[#589507] text-[#FAF8ED] 
+           rounded-3xl border-2 border-[#748E63] 
+           hover:bg-[#FAF8ED] hover:text-[#748E63] 
+           "
             >
-              Menu
-            </a>
-            <a
-              href="#project"
-              className="py-2 text-[#748E63] px-6 md:py-3 md:px-10 bg-[#FAF8ED] hover:bg-[#589507] rounded-3xl hover:text-[#FAF8ED] border-[#748E63] border-2"
-            >
-              Tentang Matcha
+              <p className="flex items-center gap-2">
+                Tentang Matcha <ChevronRight size={30}></ChevronRight>
+              </p>
             </a>
           </div>
         </div>
@@ -38,6 +39,8 @@ export default function App() {
           />
         </div>
       </div>
+
+      {/* About */}
     </div>
   );
 }
