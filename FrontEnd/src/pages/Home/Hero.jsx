@@ -4,7 +4,7 @@ import { ChevronRight } from "react-feather";
 export default function Hero() {
   return (
     <div>
-      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-10 md:py-36 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto animate__animated animate__fadeInUp animate__delay-0.5s">
+      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-10 md:py-36 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5">
           <div>
             <h1 className="text-6xl/snug font-medium text-[#589507] italic">

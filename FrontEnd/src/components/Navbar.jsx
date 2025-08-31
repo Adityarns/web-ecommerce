@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // import DataImage from "../data";
 
 export default function Navbar() {
@@ -43,40 +44,36 @@ export default function Navbar() {
         `}
       >
         <li>
-          <a
-            href="#home"
+          <Link
+            to={`/`}
             className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
           >
-            Home
-            <span className={underlineClass}></span>
-          </a>
+            Home <span className={underlineClass}></span>
+          </Link>
         </li>
         <li>
-          <a
-            href="#about"
+          <Link
+            to={`/About`}
             className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
           >
-            About
-            <span className={underlineClass}></span>
-          </a>
+            About <span className={underlineClass}></span>
+          </Link>
         </li>
         <li>
-          <a
-            href="#project"
+          <Link
+            to={`/Menu`}
             className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
           >
-            Menu
-            <span className={underlineClass}></span>
-          </a>
+            Menu <span className={underlineClass}></span>
+          </Link>
         </li>
         <li>
-          <a
-            href="#contact"
+          <Link
+            to={`/Contact`}
             className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
           >
-            Contact
-            <span className={underlineClass}></span>
-          </a>
+            Contact <span className={underlineClass}></span>
+          </Link>
         </li>
       </ul>
     </div>
