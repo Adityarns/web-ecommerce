@@ -1,4 +1,4 @@
-import DataImage from "../../data";
+import { DataImage } from "../../data";
 import { ChevronRight } from "react-feather";
 
 export default function Hero() {
