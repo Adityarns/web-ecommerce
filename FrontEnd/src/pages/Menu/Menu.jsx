@@ -2,26 +2,21 @@ import { MenuImage } from "../../data";
 
 export default function Menu() {
   return (
-    <div className="tools mt-32 mb-5">
+    <div className="tools mt-32 mb-5 min-h-screen">
       <h1 className="text-4xl/snug font-bold text-center text-[#589507]">
         List Menu
       </h1>
-      <div className="tools-box md:mt-14 mt-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-4">
+      <div className="md:mt-14 mt-5 grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-x-4 gap-y-8 max-w-[1280px] mx-auto">
         {MenuImage.map((menu) => (
-          <div
-            className="flex items-center justify-between group "
-            key={menu.id}
-          >
+          <div className="flex flex-col items-center text-center" key={menu.id}>
             <img
               src={menu.gambar}
               alt="Tools Image"
-              className="w-[300px] h-[300px] "
+              className="w-[250px] h-[250px] rounded-full object-cover "
               loading="lazy"
             />
-            <div>
-              <h4>{menu.name}</h4>
-              <p>{menu.ket}</p>
-            </div>
+            <h4 className="mt-2 font-semibold">{menu.name}</h4>
+            <p className="text-sm text-gray-600">{menu.ket}</p>
           </div>
         ))}
       </div>

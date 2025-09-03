@@ -1,5 +1,5 @@
-import LogoImage from "./assets/logo-matcha.png";
-import HeroImage from "./assets/hero-img.jpeg";
+import LogoImage from "./assets/Beranda/logo-matcha.png";
+import HeroImage from "./assets/Beranda/hero-img.jpeg";
 import CripeImage from "./assets/ListMenu/cripe-img.jpeg";
 import HotMatcha from "./assets/ListMenu/hot-matcha-img.jpeg";
 import IcedMatcha from "./assets/ListMenu/iced-matcha-img.jpeg";
