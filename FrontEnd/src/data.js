@@ -16,31 +16,43 @@ const MenuImage = [
     id: 1,
     gambar: HotMatcha,
     name: "Hot Matcha",
+    harga: 28,
+    ket: "Minuman hangat dengan bubuk matcha premium, cocok untuk menemani waktu santai dan memberi ketenangan di setiap tegukan."
   },
   {
     id: 2,
     gambar: IcedMatcha,
     name: "Iced Matcha",
+    harga: 32,
+    ket: "Sajian matcha dingin yang menyegarkan, dengan rasa khas teh hijau Jepang yang dipadukan es untuk kesegaran maksimal.",
   },
   {
     id: 3,
     gambar: IceCream,
     name: "Ice Cream Matcha",
+    harga: 18,
+    ket: "Es krim lembut bercita rasa matcha autentik, manis dan creamy, sempurna sebagai pencuci mulut.",
   },
   {
     id: 4,
     gambar: CripeImage,
     name: "Cripe Matcha",
+    harga: 25,
+    ket: "Cripe tipis bertekstur renyah yang dilapisi dengan krim matcha, memberikan perpaduan manis dan gurih dalam satu gigitan.",
   },
   {
     id: 4,
     gambar: Macarons,
     name: "Macarons Matcha",
+    harga: 27,
+    ket: "Kue mungil berwarna cantik dengan isian krim matcha lembut, manis, dan elegan sebagai camilan mewah.",
   },
   {
     id: 5,
     gambar: Mochi,
     name: "Mochi Matcha",
+    harga: 15,
+    ket: "Mochi kenyal dengan isian matcha manis, menghadirkan rasa tradisional Jepang dengan sentuhan modern.",
   },
 ];
 

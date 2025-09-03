@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-// import DataImage from "../data";
+import { ShoppingCart } from "react-feather";
 
 export default function Navbar() {
   const underlineClass =
@@ -73,6 +73,15 @@ export default function Navbar() {
             className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
           >
             Contact <span className={underlineClass}></span>
+          </Link>
+        </li>
+        <li>
+          <Link
+            to={`/Contact`}
+            className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
+          >
+            <ShoppingCart></ShoppingCart>{" "}
+            <span className={underlineClass}></span>
           </Link>
         </li>
       </ul>
