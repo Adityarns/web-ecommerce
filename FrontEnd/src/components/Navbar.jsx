@@ -77,7 +77,7 @@ export default function Navbar() {
         </li>
         <li>
           <Link
-            to={`/Contact`}
+            to={`/Cart`}
             className="flex relative group text-xl font-bold md:hover:text-[#748E63]"
           >
             <ShoppingCart></ShoppingCart>{" "}
