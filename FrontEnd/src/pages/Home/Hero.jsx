@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { DataImage } from "../../data";
 import { ChevronRight } from "react-feather";
 
 export default function Hero() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div>
       <div className="hero grid lg:grid-cols-2 grid-cols-1 py-10 md:py-36 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto">
@@ -41,6 +44,37 @@ export default function Hero() {
       </div>
 
       {/* About */}
+      <div className="flex flex-col items-center justify-center min-h-screen">
+        {/* Tombol buka popup */}
+        <button
+          onClick={() => setIsOpen(true)}
+          className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700"
+        >
+          Buka Popup
+        </button>
+
+        {/* Overlay & Popup */}
+        {isOpen && (
+          <div
+            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
+            onClick={() => setIsOpen(false)} // klik luar = tutup
+          >
+            <div
+              className="bg-white p-6 rounded-2xl shadow-xl w-80 text-center"
+              onClick={(e) => e.stopPropagation()} // biar klik popup gak nutup
+            >
+              <h2 className="text-xl font-bold mb-2">Halo!</h2>
+              <p className="mb-4">Ini popup di tengah layar.</p>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
