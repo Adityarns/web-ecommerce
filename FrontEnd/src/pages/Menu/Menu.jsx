@@ -36,7 +36,7 @@ export default function Menu() {
     closePopup();
 
     alert(
-      `${selectedItem.name} (${quantity}x) berhasil ditambahkan ke keranjang!`
+      `${selectedItem.nama} (${quantity}x) berhasil ditambahkan ke keranjang!`
     );
   };
 
@@ -55,7 +55,7 @@ export default function Menu() {
             <div className="flex justify-center mb-4">
               <img
                 src={menu.gambar}
-                alt={menu.name}
+                alt={menu.nama}
                 className="w-[200px] h-[200px] rounded-full object-cover"
                 loading="lazy"
               />
@@ -64,7 +64,7 @@ export default function Menu() {
             {/* Content Section */}
             <div className="flex flex-col items-center text-center flex-grow">
               <h2 className="font-bold text-[#589507] text-xl mb-2">
-                {menu.name}
+                {menu.nama}
               </h2>
               <p className="font-semibold text-lg text-gray-800 mb-3">
                 Rp. {menu.harga}K
@@ -97,13 +97,64 @@ export default function Menu() {
             className="bg-white p-8 rounded-2xl shadow-2xl w-96 max-w-[90vw] text-center transform transition-all duration-300"
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={selectedItem.gambar} className="w-24 rounded-full"></img>
-            <h3>{selectedItem.name}</h3>
-            <button onClick={decrementQuantity}>-</button>
-            <span>{quantity}</span>
-            <button onClick={incrementQuantity}>+</button>
-            <button onClick={closePopup}>Batal</button>
-            <button onClick={addToCart}>Tambah ke Keranjang</button>
+            {/* Item Image */}
+            <div className="flex justify-center mb-4">
+              <img
+                src={selectedItem.gambar}
+                alt={selectedItem.nama}
+                className="w-50 h-50 rounded-full object-cover"
+              />
+            </div>
+
+            {/* Item Info */}
+            <h3 className="text-2xl font-bold text-[#589507] mb-2">
+              {selectedItem.nama}
+            </h3>
+            <p className="text-lg text-gray-600 font-bold mb-4">
+              {selectedItem.harga}K
+            </p>
+
+            {/* Quantity Selector */}
+            <div className="flex items-center justify-center space-x-4 mb-6">
+              <button
+                onClick={decrementQuantity}
+                className="bg-gray-200 rounded-full w-8 h-8 hover:bg-gray-300 transition-colors text-lg font-bold flex items-center justify-center"
+              >
+                -
+              </button>
+              <p className="text-xl font-bold w-12">{quantity}</p>
+              <button
+                onClick={incrementQuantity}
+                className="bg-gray-200 rounded-full w-8 h-8 hover:bg-gray-300 transition-colors text-lg font-bold flex items-center justify-center"
+              >
+                +
+              </button>
+            </div>
+            {/* Total Price */}
+            <div className="mb-6">
+              <p className="text-lg ">
+                Total: {""}
+                <span className="text-[#589507] font-bold">
+                  {selectedItem.harga * quantity}K
+                </span>
+              </p>
+            </div>
+
+            {/* Action Buttons */}
+            <div className="flex space-x-3">
+              <button
+                onClick={closePopup}
+                className="flex-1 px-4 py-3 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400 transition-colors"
+              >
+                Batal
+              </button>
+              <button
+                onClick={addToCart}
+                className="flex-1 px-4 py-3 bg-[#589507] text-white rounded-lg hover:bg-[#748E63] transition-colors"
+              >
+                Tambah ke Keranjang
+              </button>
+            </div>
           </div>
         </div>
       )}
