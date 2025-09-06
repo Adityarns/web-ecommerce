@@ -1,11 +1,13 @@
 import { useState } from "react";
 import { MenuImage } from "../../data";
+import { useCart } from "../../components/useCart";
 
 export default function Menu() {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
   const [quantity, setQuantity] = useState(1);
 
+  const { addToCart } = useCart();
   const openPopup = (item) => {
     setIsPopupOpen(true);
     setSelectedItem(item);
@@ -26,13 +28,8 @@ export default function Menu() {
     setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
   };
 
-  const addToCart = () => {
-    console.log("Menambahkan ke keranjang:", {
-      item: selectedItem,
-      quantity: quantity,
-      totalPrice: selectedItem.harga * quantity,
-    });
-
+  const handleAddToCart = () => {
+    addToCart(selectedItem, quantity);
     closePopup();
 
     alert(
@@ -149,7 +146,7 @@ export default function Menu() {
                 Batal
               </button>
               <button
-                onClick={addToCart}
+                onClick={handleAddToCart}
                 className="flex-1 px-4 py-3 bg-[#589507] text-white rounded-lg hover:bg-[#748E63] transition-colors"
               >
                 Tambah ke Keranjang

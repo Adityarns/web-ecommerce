@@ -1,4 +1,5 @@
 export default function Cart() {
+  
   return (
     <div className="tools mt-40 mb-5 min-h-screen w-full">
       <h1 className="text-3xl/snug font-bold text-center text-[#589507]">

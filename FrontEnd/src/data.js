@@ -17,7 +17,7 @@ const MenuImage = [
     gambar: HotMatcha,
     nama: "Hot Matcha",
     harga: 28,
-    ket: "Minuman hangat dengan bubuk matcha premium, cocok untuk menemani waktu santai dan memberi ketenangan di setiap tegukan."
+    ket: "Minuman hangat dengan bubuk matcha premium, cocok untuk menemani waktu santai dan memberi ketenangan di setiap tegukan.",
   },
   {
     id: 2,
@@ -41,14 +41,14 @@ const MenuImage = [
     ket: "Cripe tipis bertekstur renyah yang dilapisi dengan krim matcha, memberikan perpaduan manis dan gurih dalam satu gigitan.",
   },
   {
-    id: 4,
+    id: 5,
     gambar: Macarons,
     nama: "Macarons Matcha",
     harga: 27,
     ket: "Kue mungil berwarna cantik dengan isian krim matcha lembut, manis, dan elegan sebagai camilan mewah.",
   },
   {
-    id: 5,
+    id: 6,
     gambar: Mochi,
     nama: "Mochi Matcha",
     harga: 15,
