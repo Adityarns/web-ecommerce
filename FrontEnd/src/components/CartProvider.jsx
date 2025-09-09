@@ -5,7 +5,6 @@ export const CartProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState([]);
 
   const addToCart = (item, quantity) => {
-    alert("Item ditambahkan: ", item, "Jumlah: ", quantity);
     const newItem = {
       id: item.id,
       nama: item.nama,
@@ -18,9 +17,11 @@ export const CartProvider = ({ children }) => {
     setCartItems((prevItem) => [...prevItem, newItem]);
   };
 
-  const value = {
+  const Pesanan = {
     cartItems,
     addToCart,
   };
-  return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
+  return (
+    <CartContext.Provider value={Pesanan}>{children}</CartContext.Provider>
+  );
 };
