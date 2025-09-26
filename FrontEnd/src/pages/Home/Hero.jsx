@@ -7,10 +7,10 @@ export default function Hero() {
 
   return (
     <div>
-      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-14 md:py-56 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto">
+      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-14 md:py-56 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)]">
         <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5">
           <div>
-            <h1 className="text-6xl/snug font-medium text-[#589507] italic">
+            <h1 className="text-6xl/snug font-bold text-[#589507]">
               Matcha Moments
             </h1>
             <p className="pt-2 pb-6 text-2xl text-left text-[#748E63]">
@@ -33,14 +33,14 @@ export default function Hero() {
             </a>
           </div>
         </div>
-        <div className="pl-16">
+        {/* <div className="pl-16">
           <img
             src={DataImage.HeroImage}
             alt="Hero Image"
             className="w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px] rounded-full object-cover mx-auto border-[#748E63] border-3"
             loading="lazy"
           />
-        </div>
+        </div> */}
       </div>
 
       {/* About */}

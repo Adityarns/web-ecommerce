@@ -19,14 +19,14 @@ export default function Navbar() {
     <div
       className={`
         navbar w-full z-50  flex justify-around items-center
-        py-6  text-[#589507] transition-all duration-300
+        py-5  text-[#589507] transition-all duration-300
         md:fixed md:top-0 md:left-0 
         md:bg-[#FAF8ED]/80 md:backdrop-blur-md md:shadow-md
       `}
     >
       <div className="logo flex">
         {/* <img src={DataImage.LogoImage} alt="LogoImage" className="w-[100px]" /> */}
-        <h1 className="flex text-4xl font-bold bg-white text-black p-1 md:bg-transparent md:text-[#589507] items-center">
+        <h1 className="flex text-4xl font-medium bg-white text-black p-1 md:bg-transparent md:text-[#589507] items-center">
           MyMatcha
         </h1>
       </div>
