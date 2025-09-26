@@ -7,7 +7,7 @@ export default function Hero() {
 
   return (
     <div>
-      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-14 md:py-38 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto">
+      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-14 md:py-56 items-center xl:gap-0 gap-5 px-6 max-w-7xl mx-auto">
         <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5">
           <div>
             <h1 className="text-6xl/snug font-medium text-[#589507] italic">
@@ -37,7 +37,7 @@ export default function Hero() {
           <img
             src={DataImage.HeroImage}
             alt="Hero Image"
-            className="w-[250px] h-[250px] md:w-[400px] md:h-[400px] lg:w-[450px] lg:h-[450px] rounded-full object-cover mx-auto border-[#748E63] border-3"
+            className="w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px] rounded-full object-cover mx-auto border-[#748E63] border-3"
             loading="lazy"
           />
         </div>
