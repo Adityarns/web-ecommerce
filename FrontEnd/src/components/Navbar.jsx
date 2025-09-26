@@ -19,7 +19,7 @@ export default function Navbar() {
     <div
       className={`
         navbar w-full z-50  flex justify-around items-center
-        py-5  text-[#589507] transition-all duration-300
+        py-4  text-[#589507] transition-all duration-300
         md:fixed md:top-0 md:left-0 
         md:bg-[#FAF8ED]/80 md:backdrop-blur-md md:shadow-md
       `}
