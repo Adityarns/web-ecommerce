@@ -7,30 +7,32 @@ export default function Hero() {
 
   return (
     <div>
-      <div className="hero grid lg:grid-cols-2 grid-cols-1 py-14 md:py-56 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)]">
-        <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5">
-          <div>
-            <h1 className="text-6xl/snug font-bold text-[#589507]">
-              Matcha Moments
-            </h1>
-            <p className="pt-2 pb-6 text-2xl text-left text-[#748E63]">
-              Dari ritual tradisional Jepang hingga cangkir Anda, rasakan
-              kelezatan matcha autentik setiap hari
-            </p>
-          </div>
-          <div className="flex flex-wrap justify-center md:justify-start gap-4">
-            <a
-              href="#about"
-              className="py-2 px-6 md:py-3 md:px-8 
-           bg-[#589507] text-[#FAF8ED] 
-           rounded-3xl border-2 border-[#748E63] 
-           hover:bg-[#FAF8ED] hover:text-[#748E63] 
+      <div className="hero grid py-14 my-2 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)] bg-no-repeat bg-cover bg-center">
+        <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5 md:py-56">
+          <div className="pl-14">
+            <div className="pt-4">
+              <h1 className="text-8xl/snug font-bold text-[#FAF8ED]">
+                Matcha Moments
+              </h1>
+              <div className="pb-6 text-2xl/tight font-medium text-left text-[#FAF8ED]">
+                <p>Dari ritual tradisional Jepang hingga cangkir Anda,</p>
+                <p>rasakan kelezatan matcha autentik setiap hari</p>
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center md:justify-start gap-4">
+              <a
+                href="#about"
+                className="py-1 px-6 md:py-2 md:px-8 
+           bg-[#FAF8ED] text-[#748E63] 
+           rounded-3xl border-2 border-[#FAF8ED] 
+           hover:bg-[#748E63] hover:text-[#FAF8ED] 
            "
-            >
-              <p className="flex items-center gap-2">
-                Tentang Matcha <ChevronRight size={30}></ChevronRight>
-              </p>
-            </a>
+              >
+                <p className="flex items-center gap-2 font-bold">
+                  Tentang Matcha <ChevronRight size={30}></ChevronRight>
+                </p>
+              </a>
+            </div>
           </div>
         </div>
         {/* <div className="pl-16">
