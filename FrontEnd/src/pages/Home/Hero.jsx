@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { DataImage } from "../../data";
 import { ChevronRight } from "react-feather";
 
 export default function Hero() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <div>
       <div className="hero grid py-14 my-2 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)] bg-no-repeat bg-cover bg-center">
@@ -28,7 +25,7 @@ export default function Hero() {
            hover:bg-[#748E63] hover:text-[#FAF8ED] 
            "
               >
-                <p className="flex items-center gap-2 font-bold">
+                <p className="flex text-2xl/snug items-center gap-2 font-bold">
                   Tentang Matcha <ChevronRight size={30}></ChevronRight>
                 </p>
               </a>
@@ -46,36 +43,13 @@ export default function Hero() {
       </div>
 
       {/* About */}
-      <div className="flex flex-col items-center justify-center min-h-screen">
-        {/* Tombol buka popup */}
-        <button
-          onClick={() => setIsOpen(true)}
-          className="px-4 py-2 bg-green-600 text-white rounded-lg shadow hover:bg-green-700"
-        >
-          Buka Popup
-        </button>
-
-        {/* Overlay & Popup */}
-        {isOpen && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center"
-            onClick={() => setIsOpen(false)} // klik luar = tutup
-          >
-            <div
-              className="bg-white p-6 rounded-2xl shadow-xl w-80 text-center"
-              onClick={(e) => e.stopPropagation()} // biar klik popup gak nutup
-            >
-              <h2 className="text-xl font-bold mb-2">Halo!</h2>
-              <p className="mb-4">Ini popup di tengah layar.</p>
-              <button
-                onClick={() => setIsOpen(false)}
-                className="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600"
-              >
-                Tutup
-              </button>
-            </div>
-          </div>
-        )}
+      <div className="About grid py-14 my-2 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto pt-28">
+        <div className="flex flex-col justify-center text-center ">
+          <h1 className="text-7xl/snug font-bold text-[#748E63]">
+            Mengapa Harus Matcha?
+          </h1>
+          <div cl>Mengapa</div>
+        </div>
       </div>
     </div>
   );
