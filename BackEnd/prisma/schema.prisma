@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model gudang_mymatcha {
+  kode_barang  String @id(map: "barang_pkey") @db.Char(5)
+  nama_barang  String @db.VarChar(50)
+  harga_barang Int
+  stok_barang  Int
+}
+
+model User {
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  name      String?
+  password  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
