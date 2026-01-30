@@ -23,6 +23,9 @@ export const getMenuById = async (req, res) => {
 
 export const addMenu = async (req, res) => {
   const newMenu = req.body;
+  if (!(newMenu.nama_barang && newMenu.harga_barang && newMenu.stok_barang)) {
+    res.status(400).send("Terdapat data yang tidak lengkap");
+  }
   const menu = await prisma.gudang_mymatcha.create({
     data: {
       nama_barang: newMenu.nama_barang,
@@ -33,6 +36,52 @@ export const addMenu = async (req, res) => {
   res.status(201).send({
     data: menu,
     message: "Menu berhasil ditambahkan",
+  });
+};
+
+export const updateMenu = async (req, res) => {
+  const menuId = req.params.id;
+  const menuData = req.body;
+
+  if (
+    !(menuData.nama_barang && menuData.harga_barang && menuData.stok_barang)
+  ) {
+    res.status(400).send("Terdapat data yang tidak lengkap");
+  }
+
+  const menu = await prisma.gudang_mymatcha.update({
+    where: {
+      kode_barang: parseInt(menuId),
+    },
+    data: {
+      nama_barang: menuData.nama_barang,
+      harga_barang: menuData.harga_barang,
+      stok_barang: menuData.stok_barang,
+    },
+  });
+  res.status(200).send({
+    data: menu,
+    message: "Berhasil di update",
+  });
+};
+
+export const patchMenu = async (req, res) => {
+  const menuId = req.params.id;
+  const menuData = req.body;
+
+  const menu = await prisma.gudang_mymatcha.update({
+    where: {
+      kode_barang: parseInt(menuId),
+    },
+    data: {
+      nama_barang: menuData.nama_barang,
+      harga_barang: menuData.harga_barang,
+      stok_barang: menuData.stok_barang,
+    },
+  });
+  res.status(200).send({
+    data: menu,
+    message: "Berhasil di update",
   });
 };
 
