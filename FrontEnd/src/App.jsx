@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Layout from "../components/Layout";
-import Home from "../pages/Home/Home";
-import Menu from "../pages/Menu/Menu";
-import Cart from "../pages/Cart/Cart";
-import { CartProvider } from "./CartProvider";
+import Layout from "./components/Layout";
+import Home from "./pages/Home/Home";
+import Menu from "./pages/Menu/Menu";
+import Cart from "./pages/Cart/Cart";
+import { CartProvider } from "./components/CartProvider";
 
 export default function App() {
   return (

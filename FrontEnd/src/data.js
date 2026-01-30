@@ -6,6 +6,7 @@ import IcedMatcha from "./assets/ListMenu/iced-matcha-img.jpeg";
 import IceCream from "./assets/ListMenu/ice-cream-img.jpeg";
 import Macarons from "./assets/ListMenu/macarons-img.jpeg";
 import Mochi from "./assets/ListMenu/mochi-img.jpeg";
+
 const DataImage = {
   LogoImage,
   HeroImage,
@@ -56,4 +57,13 @@ const MenuImage = [
   },
 ];
 
-export { DataImage, MenuImage };
+export {
+  DataImage,
+  MenuImage,
+  HotMatcha,
+  IcedMatcha,
+  IceCream,
+  CripeImage,
+  Macarons,
+  Mochi,
+};

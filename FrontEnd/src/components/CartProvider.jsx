@@ -6,12 +6,12 @@ export const CartProvider = ({ children }) => {
 
   const addToCart = (item, quantity) => {
     const newItem = {
-      id: item.id,
-      nama: item.nama,
-      harga: item.harga,
-      gambar: item.gambar,
+      kode_barang: item.kode_barang,
+      nama_barang: item.nama_barang,
+      harga_barang: item.harga_barang,
+      stok_barang: item.stok_barang,
       quantity,
-      totalPrice: item.harga * quantity,
+      totalPrice: item.harga_barang * quantity,
     };
 
     setCartItems((prevItem) => [...prevItem, newItem]);

@@ -1,39 +1,64 @@
 import { useCart } from "../../components/useCart";
+import {
+  HotMatcha,
+  IcedMatcha,
+  IceCream,
+  CripeImage,
+  Macarons,
+  Mochi,
+} from "../../data";
+
+// same mapping as Menu.jsx
+const imageMap = {
+  2: HotMatcha,
+  3: IcedMatcha,
+  4: IceCream,
+  5: CripeImage,
+  6: Macarons,
+  7: Mochi,
+};
+
+const getImageByKodeBarang = (kodeBarang) => imageMap[kodeBarang] || null;
 
 export default function Cart() {
   const { cartItems } = useCart();
 
-  // Hitung grand total
-  const grandTotal = cartItems.reduce((total, item) => total + item.totalPrice, 0);
+  // Hitung grand total (numeric)
+  const grandTotal = cartItems.reduce(
+    (total, item) => total + (item.totalPrice || 0),
+    0,
+  );
 
   return (
     <div className="tools mt-40 mb-5 min-h-screen w-full">
       <h1 className="text-3xl/snug font-bold text-center text-[#589507]">
         Check Out
       </h1>
-      
+
       <div className="max-w-4xl mx-auto px-4">
         {cartItems.length === 0 ? (
-          // Tampilan ketika cart kosong
           <div className="flex items-center justify-center bg-white rounded-2xl border-2 border-gray-200 shadow-sm p-12 mt-8">
             <div className="text-center">
-              <p className="text-gray-500 text-lg mb-4">Keranjang Anda masih kosong</p>
-              <p className="text-gray-400">Silakan tambahkan menu dari halaman menu</p>
+              <p className="text-gray-500 text-lg mb-4">
+                Keranjang Anda masih kosong
+              </p>
+              <p className="text-gray-400">
+                Silakan tambahkan menu dari halaman menu
+              </p>
             </div>
           </div>
         ) : (
-          // Tampilan ketika ada item di cart
           <div className="mt-8 space-y-4">
             {cartItems.map((item, index) => (
               <div
-                key={`${item.id}-${index}`}
+                key={`${item.kode_barang}-${index}`}
                 className="flex items-center bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:border-[#589507] p-6 transition-all duration-300"
               >
                 {/* Gambar Item */}
                 <div className="flex-shrink-0 mr-6">
                   <img
-                    src={item.gambar}
-                    alt={item.nama}
+                    src={getImageByKodeBarang(item.kode_barang)}
+                    alt={item.nama_barang}
                     className="w-20 h-20 rounded-full object-cover"
                   />
                 </div>
@@ -41,20 +66,18 @@ export default function Cart() {
                 {/* Info Item */}
                 <div className="flex-grow">
                   <h3 className="text-xl font-bold text-[#589507] mb-1">
-                    {item.nama}
+                    {item.nama_barang}
                   </h3>
                   <p className="text-gray-600 mb-2">
-                    Harga: Rp. {item.harga}K
+                    Harga: Rp. {item.harga_barang}
                   </p>
-                  <p className="text-gray-600">
-                    Quantity: {item.quantity}
-                  </p>
+                  <p className="text-gray-600">Quantity: {item.quantity}</p>
                 </div>
 
                 {/* Total Harga Item */}
                 <div className="text-right">
                   <p className="text-lg font-bold text-[#589507]">
-                    Rp. {item.totalPrice}K
+                    Rp. {item.totalPrice}
                   </p>
                 </div>
               </div>
@@ -64,7 +87,7 @@ export default function Cart() {
             <div className="bg-[#589507] text-white rounded-2xl p-6 mt-6">
               <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-bold">Total Harga:</h2>
-                <p className="text-2xl font-bold">Rp. {grandTotal}K</p>
+                <p className="text-2xl font-bold">Rp. {grandTotal}</p>
               </div>
             </div>
 
