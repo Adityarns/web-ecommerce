@@ -2,9 +2,10 @@ import { DataImage } from "../../data";
 import { ChevronRight } from "react-feather";
 
 export default function Hero() {
+  
   return (
     <div>
-      <div className="hero grid py-14 my-2 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)] bg-no-repeat bg-cover bg-center">
+      <div className="hero grid py-14 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)] bg-no-repeat bg-cover bg-center bg-blend-multiply">
         <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5 md:py-56">
           <div className="pl-8">
             <div className="pt-2">

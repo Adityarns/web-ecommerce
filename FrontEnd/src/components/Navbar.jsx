@@ -9,7 +9,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setActive(window.scrollY > 150);
+      setActive(window.scrollY > 100);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -18,10 +18,11 @@ export default function Navbar() {
   return (
     <div
       className={`
-        navbar w-full z-50  
-        py-4  text-[#589507] transition-all duration-300
+        navbar w-full z-50 md:bg-none
+        text-[#589507] md:bg-[#FAF8ED]/70 md:backdrop-blur-md md:shadow-md
+        py-3  transition-all duration-300
         md:fixed md:top-0 md:left-0 
-        md:bg-[#FAF8ED]/80 md:backdrop-blur-md md:shadow-md
+        
       `}
     >
       <div className=" mx-32 flex justify-between items-center">
@@ -29,7 +30,7 @@ export default function Navbar() {
           {/* <img src={DataImage.LogoImage} alt="LogoImage" className="w-[100px]" /> */}
           <h1
             className="flex text-4xl font-semibold
-           bg-white text-[#589507] p-1 md:bg-transparent md:text-[#589507] items-center"
+           bg-white  p-1 md:bg-transparent  items-center"
           >
             MyMatcha
           </h1>

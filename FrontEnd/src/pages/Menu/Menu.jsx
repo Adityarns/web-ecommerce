@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useCart } from "../../components/useCart";
 import {
   HotMatcha,
@@ -32,6 +32,10 @@ export default function Menu() {
   const [error, setError] = useState(null);
 
   const { addToCart } = useCart();
+
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState("");
+  const toastTimeoutRef = useRef(null);
 
   useEffect(() => {
     fetchMenuData();
@@ -78,9 +82,20 @@ export default function Menu() {
     addToCart(selectedItem, quantity);
     closePopup();
 
-    alert(
+    // Show toast instead of alert
+    setToastMessage(
       `${selectedItem.nama_barang} (${quantity}x) berhasil ditambahkan ke keranjang!`,
     );
+    setShowToast(true);
+
+    // Clear any existing timeout
+    if (toastTimeoutRef.current) clearTimeout(toastTimeoutRef.current);
+
+    // Auto-hide toast after 3s
+    toastTimeoutRef.current = setTimeout(() => {
+      setShowToast(false);
+      toastTimeoutRef.current = null;
+    }, 3000);
   };
 
   if (loading) {
@@ -120,8 +135,8 @@ export default function Menu() {
           >
             {/* Price Badge */}
             <div className="absolute top-3 right-3">
-              <div className="bg-white/90 text-[#589507] font-bold px-3 py-1 rounded-full text-sm shadow">
-                Rp. {menu.harga_barang}
+              <div className="bg-white/90 text-[#589507] font-bold px-3 py-1 rounded-full text-md shadow">
+                Stok:{menu.stok_barang}
               </div>
             </div>
 
@@ -143,9 +158,9 @@ export default function Menu() {
                 {menu.nama_barang}
               </h2>
               <p className="text-sm text-gray-600 mb-3">
-                Stok:{" "}
+                Rp.:{" "}
                 <span className="font-semibold text-gray-800">
-                  {menu.stok_barang}
+                  {menu.harga_barang}
                 </span>
               </p>
 
@@ -249,6 +264,17 @@ export default function Menu() {
               </button>
             </div>
           </div>
+        </div>
+      )}
+
+      {/* Toast */}
+      {showToast && (
+        <div
+          role="status"
+          aria-live="polite"
+          className="fixed bottom-6 left-1/2 -translate-x-1/2 bg-[#589507] text-white px-4 py-3 rounded-lg shadow-lg z-50 transition-opacity duration-300"
+        >
+          {toastMessage}
         </div>
       )}
     </div>

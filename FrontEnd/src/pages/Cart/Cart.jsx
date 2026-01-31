@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from "react";
 import { useCart } from "../../components/useCart";
 import {
   HotMatcha,
@@ -21,7 +22,32 @@ const imageMap = {
 const getImageByKodeBarang = (kodeBarang) => imageMap[kodeBarang] || null;
 
 export default function Cart() {
-  const { cartItems } = useCart();
+  const { cartItems, clearCart } = useCart();
+  const [showOrderPopup, setShowOrderPopup] = useState(false);
+  const orderTimeoutRef = useRef(null);
+
+  const handleOrderNow = () => {
+    // Clear cart items
+    clearCart();
+
+    // Show popup
+    setShowOrderPopup(true);
+
+    // Clear previous timeout if any
+    if (orderTimeoutRef.current) clearTimeout(orderTimeoutRef.current);
+
+    // Auto-hide after 3s
+    orderTimeoutRef.current = setTimeout(() => {
+      setShowOrderPopup(false);
+      orderTimeoutRef.current = null;
+    }, 5000);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (orderTimeoutRef.current) clearTimeout(orderTimeoutRef.current);
+    };
+  }, []);
 
   // Hitung grand total (numeric)
   const grandTotal = cartItems.reduce(
@@ -93,13 +119,39 @@ export default function Cart() {
 
             {/* Button Checkout */}
             <div className="flex justify-center mt-8">
-              <button className="bg-[#589507] text-white px-8 py-3 rounded-2xl border-2 border-[#748E63] hover:bg-[#FAF8ED] hover:text-[#748E63] transition-colors duration-300 font-bold text-lg">
-                Proses Checkout
+              <button
+                className="bg-[#589507] text-white px-8 py-3 rounded-2xl border-2 border-[#748E63] hover:bg-[#FAF8ED] hover:text-[#748E63] transition-colors duration-300 font-bold text-lg"
+                onClick={handleOrderNow}
+              >
+                Pesan Sekarang
               </button>
             </div>
           </div>
         )}
       </div>
+      {/* Order Success Popup */}
+      {showOrderPopup && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/30"
+          onClick={() => setShowOrderPopup(false)}
+        >
+          <div
+            className="bg-white rounded-2xl p-6 shadow-2xl max-w-sm w-full text-center"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 className="text-xl font-bold text-[#589507] mb-2">Sukses</h3>
+            <p className="text-gray-700 mb-4">Pesanan berhasil diproses!</p>
+            <div className="flex justify-center">
+              <button
+                onClick={() => setShowOrderPopup(false)}
+                className="px-4 py-2 bg-[#589507] text-white rounded-lg hover:bg-[#748E63]"
+              >
+                Tutup
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

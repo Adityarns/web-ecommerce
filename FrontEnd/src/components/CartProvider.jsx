@@ -17,9 +17,14 @@ export const CartProvider = ({ children }) => {
     setCartItems((prevItem) => [...prevItem, newItem]);
   };
 
+  const clearCart = () => {
+    setCartItems([]);
+  };
+
   const Pesanan = {
     cartItems,
     addToCart,
+    clearCart,
   };
   return (
     <CartContext.Provider value={Pesanan}>{children}</CartContext.Provider>
