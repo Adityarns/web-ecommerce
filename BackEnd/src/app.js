@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import router from "./menu/menu.routes.js";
+import router from "./controller/menu.controller.js";
 
 const app = express();
 app.use(express.json());
