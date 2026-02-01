@@ -1,12 +1,10 @@
-import { DataImage } from "../../data";
 import { ChevronRight } from "react-feather";
 
 export default function Hero() {
-  
   return (
     <div>
-      <div className="hero grid py-14 items-center xl:gap-0 gap-5 px-6 max-w-8xl max-h-screen mx-auto bg-[url(./assets/Beranda/beranda-img.jpeg)] bg-no-repeat bg-cover bg-center bg-blend-multiply">
-        <div className="flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5 md:py-56">
+      <div className="relative hero grid py-14 items-center xl:gap-0 gap-5 px-6 w-full h-screen bg-[url(./assets/Beranda/beranda-img.jpeg)] bg-no-repeat bg-cover bg-center bg-blend-multiply before:absolute before:inset-0 before:bg-gradient-to-b before:from-transparent before:to-black before:opacity-50 before:pointer-events-none">
+        <div className="relative flex flex-col items-center lg:items-start justify-center text-center md:text-left lg:pl-6 xl:pl-18 pb-5 md:py-56 z-10">
           <div className="pl-8">
             <div className="pt-2">
               <h1 className="text-8xl/snug font-bold text-[#FAF8ED]">
@@ -33,14 +31,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        {/* <div className="pl-16">
-          <img
-            src={DataImage.HeroImage}
-            alt="Hero Image"
-            className="w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[350px] lg:h-[350px] rounded-full object-cover mx-auto border-[#748E63] border-3"
-            loading="lazy"
-          />
-        </div> */}
       </div>
 
       {/* About */}

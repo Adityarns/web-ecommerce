@@ -1,7 +1,9 @@
 import { prisma } from "../db/database.js";
 
 export const getMenu = async () => {
-  const menu = await prisma.gudang_mymatcha.findMany();
+  const menu = await prisma.gudang_mymatcha.findMany({
+    orderBy: { kode_barang: "asc" },
+  });
   return menu;
 };
 

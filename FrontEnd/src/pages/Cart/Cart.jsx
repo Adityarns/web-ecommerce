@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useCart } from "../../components/useCart";
+import axios from "axios";
 import {
   HotMatcha,
   IcedMatcha,
@@ -43,6 +44,23 @@ export default function Cart() {
     }, 5000);
   };
 
+  const handleUpdateStock = () => {
+    cartItems.forEach(async (item) => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/Menu/${item.kode_barang}`,
+        );
+        const currentStock = response.data.stok_barang;
+        const newStock = currentStock - item.quantity;
+        await axios.put(`http://localhost:3000/Menu/${item.kode_barang}`, {
+          stok_barang: newStock,
+        });
+      } catch (error) {
+        console.error("Error updating stock:", error);
+      }
+    });
+  };
+
   useEffect(() => {
     return () => {
       if (orderTimeoutRef.current) clearTimeout(orderTimeoutRef.current);
@@ -80,6 +98,7 @@ export default function Cart() {
                 key={`${item.kode_barang}-${index}`}
                 className="flex items-center bg-white rounded-2xl border-2 border-gray-200 shadow-sm hover:border-[#589507] p-6 transition-all duration-300"
               >
+                
                 {/* Gambar Item */}
                 <div className="flex-shrink-0 mr-6">
                   <img
@@ -90,11 +109,11 @@ export default function Cart() {
                 </div>
 
                 {/* Info Item */}
-                <div className="flex-grow">
-                  <h3 className="text-xl font-bold text-[#589507] mb-1">
+                <div className="flex grow justify-around items-center">
+                  <h3 className="text-xl font-bold text-[#589507]">
                     {item.nama_barang}
                   </h3>
-                  <p className="text-gray-600 mb-2">
+                  <p className="text-gray-600">
                     Harga: Rp. {item.harga_barang}
                   </p>
                   <p className="text-gray-600">Quantity: {item.quantity}</p>
@@ -121,7 +140,10 @@ export default function Cart() {
             <div className="flex justify-center mt-8">
               <button
                 className="bg-[#589507] text-white px-8 py-3 rounded-2xl border-2 border-[#748E63] hover:bg-[#FAF8ED] hover:text-[#748E63] transition-colors duration-300 font-bold text-lg"
-                onClick={handleOrderNow}
+                onClick={() => {
+                  handleOrderNow();
+                  handleUpdateStock();
+                }}
               >
                 Pesan Sekarang
               </button>

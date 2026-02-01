@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import axios from "axios";
 import { useCart } from "../../components/useCart";
 import {
   HotMatcha,
@@ -44,12 +45,9 @@ export default function Menu() {
   const fetchMenuData = async () => {
     try {
       setLoading(true);
-      const response = await fetch("http://localhost:3000/Menu");
-      if (!response.ok) {
-        throw new Error("Gagal mengambil data menu");
-      }
-      const result = await response.json();
-      setMenuItems(result.data);
+      await axios.get("http://localhost:3000/Menu").then((response) => {
+        setMenuItems(response.data);
+      });
       setError(null);
     } catch (err) {
       setError(err.message);
