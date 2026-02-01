@@ -4,7 +4,6 @@ import {
   deleteMenu,
   getMenu,
   getMenuById,
-  patchMenu,
   updateMenu,
 } from "../service/menu.service.js";
 const router = express.Router();
@@ -48,6 +47,11 @@ router.put("/Menu/:id", async (req, res) => {
   try {
     const menuId = parseInt(req.params.id);
     const menuData = req.body;
+    if (
+      !(menuData.nama_barang && menuData.harga_barang && menuData.stok_barang)
+    ) {
+      res.status(400).send("Terdapat data yang tidak lengkap");
+    }
     const menu = await updateMenu(menuId, menuData);
     res.status(200).send({
       data: menu,
@@ -61,7 +65,7 @@ router.patch("/Menu/:id", async (req, res) => {
   try {
     const menuId = parseInt(req.params.id);
     const menuData = req.body;
-    const menu = await patchMenu(menuId, menuData);
+    const menu = await updateMenu(menuId, menuData);
     res.status(200).send({
       data: menu,
       message: "Menu berhasil diupdate",

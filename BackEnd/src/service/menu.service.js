@@ -36,27 +36,6 @@ export const addMenu = async (newMenu) => {
 
 export const updateMenu = async (id, menuData) => {
   await getMenuById(id);
-  if (
-    !(menuData.nama_barang && menuData.harga_barang && menuData.stok_barang)
-  ) {
-    res.status(400).send("Terdapat data yang tidak lengkap");
-  }
-
-  const menu = await prisma.gudang_mymatcha.update({
-    where: {
-      kode_barang: id,
-    },
-    data: {
-      nama_barang: menuData.nama_barang,
-      harga_barang: menuData.harga_barang,
-      stok_barang: menuData.stok_barang,
-    },
-  });
-  return menu;
-};
-
-export const patchMenu = async (id, menuData) => {
-  await getMenuById(id);
   const menu = await prisma.gudang_mymatcha.update({
     where: {
       kode_barang: id,
