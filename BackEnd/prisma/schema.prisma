@@ -11,6 +11,7 @@ model gudang_mymatcha {
   nama_barang  String @db.VarChar(50)
   harga_barang Int
   stok_barang  Int
+  deskripsi    String?
 }
 
 model User {

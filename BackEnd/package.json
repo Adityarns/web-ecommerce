@@ -28,6 +28,7 @@
     "pg": "^8.17.2"
   },
   "devDependencies": {
+    "@types/node": "^25.2.1",
     "prisma": "^7.3.0"
   }
 }

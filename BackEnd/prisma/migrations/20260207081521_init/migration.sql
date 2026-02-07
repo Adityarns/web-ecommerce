@@ -1,11 +1,12 @@
 -- CreateTable
 CREATE TABLE "gudang_mymatcha" (
-    "kode_barang" CHAR(5) NOT NULL,
+    "kode_barang" SERIAL NOT NULL,
     "nama_barang" VARCHAR(50) NOT NULL,
     "harga_barang" INTEGER NOT NULL,
     "stok_barang" INTEGER NOT NULL,
+    "deskripsi" TEXT,
 
-    CONSTRAINT "barang_pkey" PRIMARY KEY ("kode_barang")
+    CONSTRAINT "gudang_mymatcha_pkey" PRIMARY KEY ("kode_barang")
 );
 
 -- CreateTable
