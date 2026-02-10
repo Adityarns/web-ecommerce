@@ -31,6 +31,7 @@ export const addMenu = async (newMenu) => {
       nama_barang: newMenu.nama_barang,
       harga_barang: newMenu.harga_barang,
       stok_barang: newMenu.stok_barang,
+      deskripsi: newMenu.deskripsi,
     },
   });
   return menu;
@@ -46,6 +47,7 @@ export const updateMenu = async (id, menuData) => {
       nama_barang: menuData.nama_barang,
       harga_barang: menuData.harga_barang,
       stok_barang: menuData.stok_barang,
+      deskripsi: menuData.deskripsi,
     },
   });
   return menu;

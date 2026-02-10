@@ -48,7 +48,12 @@ router.put("/Menu/:id", async (req, res) => {
     const menuId = parseInt(req.params.id);
     const menuData = req.body;
     if (
-      !(menuData.nama_barang && menuData.harga_barang && menuData.stok_barang)
+      !(
+        menuData.nama_barang &&
+        menuData.harga_barang &&
+        menuData.stok_barang &&
+        menuData.deskripsi
+      )
     ) {
       res.status(400).send("Terdapat data yang tidak lengkap");
     }
