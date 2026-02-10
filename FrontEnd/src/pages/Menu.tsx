@@ -20,6 +20,7 @@ interface MenuItem {
   nama_barang: string;
   harga_barang: number;
   stok_barang: number;
+  deskripsi: string;
 }
 
 const imageMap: Record<number, string> = {
@@ -173,10 +174,13 @@ export default function Menu() {
 
                   {/* Content */}
                   <div className="p-6">
-                    <h3 className="font-display text-xl font-bold text-foreground mb-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-display text-xl font-semibold text-foreground mb-2">
                       {menu.nama_barang}
                     </h3>
-                    <p className="text-2xl font-bold text-primary mb-4">
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      {menu.deskripsi}
+                    </p>
+                    <p className="text-2xl font-bold text-foreground mb-4">
                       {formatCurrency(menu.harga_barang)}
                     </p>
 
